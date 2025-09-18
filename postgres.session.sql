@@ -45,3 +45,19 @@ select count(DISTINCT category) from retail_sales;
 select DISTINCT category from retail_sales
 
 -- data analysis & business key problems
+select * from retail_sales
+where sale_date = '2022-11-05';
+
+select * from retail_sales 
+where category = 'Clothing'
+and to_char(sale_date, 'YYYY-MM') = '2022-11'
+and quantiy >= 4;
+
+select category, sum(total_sale) as net_sales, count(*) as total_orders from retail_sales
+group by category;
+
+select round(avg(age), 2) as average_age from retail_sales
+where category = 'Beauty';
+
+select * from retail_sales
+where total_sale >= 1000;
